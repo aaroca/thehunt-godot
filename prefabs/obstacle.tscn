@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6u8b4aft433k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_alfra"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_snesq"]
+albedo_color = Color(0.862745, 0.282353, 1, 1)
+refraction_scale = 0.34
+
+[sub_resource type="BoxMesh" id="BoxMesh_4ntnc"]
+material = SubResource("StandardMaterial3D_snesq")
+
+[node name="obstacle" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 7
+
+[node name="obstacleCollision" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_alfra")
+
+[node name="obstacleShape" type="MeshInstance3D" parent="obstacleCollision"]
+mesh = SubResource("BoxMesh_4ntnc")
+skeleton = NodePath("../../..")

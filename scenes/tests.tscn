@@ -1,12 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bfklxn17yt48j"]
+[gd_scene load_steps=8 format=3 uid="uid://bfklxn17yt48j"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_alfra"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_snesq"]
-albedo_color = Color(0.231373, 0.282353, 1, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_4ntnc"]
-material = SubResource("StandardMaterial3D_snesq")
+[ext_resource type="Script" path="res://scripts/debug.gd" id="1_3ok25"]
+[ext_resource type="PackedScene" uid="uid://b34rym0jaouju" path="res://prefabs/player.tscn" id="2_hkmjo"]
+[ext_resource type="PackedScene" uid="uid://c6u8b4aft433k" path="res://prefabs/obstacle.tscn" id="2_kuul4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sy1m3"]
 size = Vector3(20, 0.2, 20)
@@ -18,29 +14,21 @@ albedo_color = Color(0.184314, 0.25098, 0.184314, 1)
 material = SubResource("StandardMaterial3D_egurx")
 size = Vector3(20, 0.2, 20)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_8luw3"]
-size = Vector3(1, 2.00823, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_rs4ka"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_sd3hk"]
+size = Vector3(21, 5, 0.1)
 
 [node name="tests" type="Node3D"]
+script = ExtResource("1_3ok25")
 
 [node name="sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.684878, 0.728658, 0, -0.728658, 0.684878, 0, 6.42572, 5.70596)
+metadata/_edit_lock_ = true
 
-[node name="obstacle" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47064, 2.78491, 0)
-collision_layer = 2
-collision_mask = 7
-
-[node name="obstacleCollision" type="CollisionShape3D" parent="obstacle"]
-shape = SubResource("BoxShape3D_alfra")
-
-[node name="obstacleShape" type="MeshInstance3D" parent="obstacle/obstacleCollision"]
-mesh = SubResource("BoxMesh_4ntnc")
-skeleton = NodePath("../../..")
+[node name="obstacle" parent="." instance=ExtResource("2_kuul4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47064, 2.89775, 0)
 
 [node name="floor" type="StaticBody3D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="floorCollision" type="CollisionShape3D" parent="floor"]
 shape = SubResource("BoxShape3D_sy1m3")
@@ -49,17 +37,30 @@ shape = SubResource("BoxShape3D_sy1m3")
 mesh = SubResource("BoxMesh_la11p")
 skeleton = NodePath("../../..")
 
-[node name="player" type="CharacterBody3D" parent="."]
-transform = Transform3D(0.99983, 0, -0.0184122, 0, 1, 0, 0.0184122, 0, 0.99983, 5.50439, 0.402725, 0)
-collision_layer = 4
-collision_mask = 3
+[node name="invisibleWall1" type="CollisionShape3D" parent="floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69095, 9.93749)
+shape = SubResource("BoxShape3D_sd3hk")
 
-[node name="playerCollision" type="CollisionShape3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.70139, 0)
-shape = SubResource("BoxShape3D_8luw3")
+[node name="invisibleWall2" type="CollisionShape3D" parent="floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69095, -9.95933)
+shape = SubResource("BoxShape3D_sd3hk")
 
-[node name="playerShape" type="MeshInstance3D" parent="player/playerCollision"]
-mesh = SubResource("CapsuleMesh_rs4ka")
+[node name="invisibleWall3" type="CollisionShape3D" parent="floor"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.94055, 1.69095, -0.120233)
+shape = SubResource("BoxShape3D_sd3hk")
 
-[node name="mainCamera" type="Camera3D" parent="player/playerCollision/playerShape"]
-transform = Transform3D(0.0283232, 0, 0.999599, 0, 1, 0, -0.999599, 0, 0.0283232, 0.0336967, 0.632671, 0.0121033)
+[node name="invisibleWall4" type="CollisionShape3D" parent="floor"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.95662, 1.69095, -0.120233)
+shape = SubResource("BoxShape3D_sd3hk")
+
+[node name="player" parent="." instance=ExtResource("2_hkmjo")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.50439, 0.402725, 0)
+
+[node name="obstacle2" parent="." instance=ExtResource("2_kuul4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.35237, 1.87015, 0)
+
+[node name="obstacle3" parent="." instance=ExtResource("2_kuul4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47064, 5.0314, -4.49542)
+
+[node name="obstacle4" parent="." instance=ExtResource("2_kuul4")]
+transform = Transform3D(0.64679, 0.346244, -0.679542, 0, 0.891007, 0.453991, 0.762668, -0.293636, 0.576294, 0.69581, 3.99485, 5.04719)

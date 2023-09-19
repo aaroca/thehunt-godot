@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://b34rym0jaouju"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_45v8c"]
+[ext_resource type="Script" path="res://scripts/camera.gd" id="2_fsokt"]
+[ext_resource type="Texture2D" uid="uid://52rbplp5ou6l" path="res://assets/2d/crosshair001.png" id="3_plbpq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8luw3"]
+size = Vector3(1, 2.00823, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_rs4ka"]
+
+[node name="player" type="CharacterBody3D"]
+transform = Transform3D(0.99983, 0, -0.0184122, 0, 1, 0, 0.0184122, 0, 0.99983, 0, 0, 0)
+collision_layer = 4
+script = ExtResource("1_45v8c")
+
+[node name="playerCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.70139, 0)
+shape = SubResource("BoxShape3D_8luw3")
+
+[node name="playerShape" type="MeshInstance3D" parent="playerCollision"]
+mesh = SubResource("CapsuleMesh_rs4ka")
+
+[node name="mainCamera" type="Camera3D" parent="playerCollision/playerShape"]
+transform = Transform3D(0.999385, 0, 0.0350911, 0, 1, 0, -0.0350911, 0, 0.999385, 0.0336967, 0.632671, 0.0121033)
+script = ExtResource("2_fsokt")
+
+[node name="crosshair" type="TextureRect" parent="playerCollision/playerShape/mainCamera"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_plbpq")
+stretch_mode = 3
