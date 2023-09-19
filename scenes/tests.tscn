@@ -82,3 +82,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47064, 5.0314, -4.49542)
 
 [node name="obstacle4" parent="." instance=ExtResource("2_kuul4")]
 transform = Transform3D(0.64679, 0.346244, -0.679542, 0, 0.891007, 0.453991, 0.762668, -0.293636, 0.576294, 0.69581, 3.99485, 5.04719)
+
+[connection signal="debug" from="." to="player" method="_on_debug"]

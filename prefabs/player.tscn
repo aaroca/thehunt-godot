@@ -41,3 +41,31 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("3_plbpq")
 stretch_mode = 3
+
+[node name="debug" type="Label" parent="playerCollision/playerShape/mainCamera"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 0
+vertical_alignment = 1
+
+[node name="info" type="Label" parent="playerCollision/playerShape/mainCamera"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 8.0
+offset_bottom = 23.0
+grow_horizontal = 2
+size_flags_horizontal = 0
+text = "ESC: exit | TAB: release/capture mouse"
+vertical_alignment = 1
+
+[node name="debugTimeout" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="debugTimeout" to="." method="_on_debug_timeout"]

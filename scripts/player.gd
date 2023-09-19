@@ -38,3 +38,13 @@ func _input(event):
 		var changev=-event.relative.x*mouse_sens
 		camera_anglev+=changev
 		rotate_y(deg_to_rad(changev))
+
+
+func _on_debug(message):
+	$playerCollision/playerShape/mainCamera/debug.text = message
+
+func _on_debug_timeout():
+	var debug = $playerCollision/playerShape/mainCamera/debug
+
+	if debug.text != "":
+		debug.text = ""
