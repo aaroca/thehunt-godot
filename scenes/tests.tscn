@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://bfklxn17yt48j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_alfra"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_snesq"]
+albedo_color = Color(0.231373, 0.282353, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4ntnc"]
+material = SubResource("StandardMaterial3D_snesq")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sy1m3"]
+size = Vector3(20, 0.2, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_egurx"]
+albedo_color = Color(0.184314, 0.25098, 0.184314, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_la11p"]
+material = SubResource("StandardMaterial3D_egurx")
+size = Vector3(20, 0.2, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8luw3"]
+size = Vector3(1, 2.00823, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_rs4ka"]
+
+[node name="tests" type="Node3D"]
+
+[node name="sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.684878, 0.728658, 0, -0.728658, 0.684878, 0, 6.42572, 5.70596)
+
+[node name="obstacle" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47064, 2.78491, 0)
+collision_layer = 2
+collision_mask = 7
+
+[node name="obstacleCollision" type="CollisionShape3D" parent="obstacle"]
+shape = SubResource("BoxShape3D_alfra")
+
+[node name="obstacleShape" type="MeshInstance3D" parent="obstacle/obstacleCollision"]
+mesh = SubResource("BoxMesh_4ntnc")
+skeleton = NodePath("../../..")
+
+[node name="floor" type="StaticBody3D" parent="."]
+
+[node name="floorCollision" type="CollisionShape3D" parent="floor"]
+shape = SubResource("BoxShape3D_sy1m3")
+
+[node name="floorShape" type="MeshInstance3D" parent="floor/floorCollision"]
+mesh = SubResource("BoxMesh_la11p")
+skeleton = NodePath("../../..")
+
+[node name="player" type="CharacterBody3D" parent="."]
+transform = Transform3D(0.99983, 0, -0.0184122, 0, 1, 0, 0.0184122, 0, 0.99983, 5.50439, 0.402725, 0)
+collision_layer = 4
+collision_mask = 3
+
+[node name="playerCollision" type="CollisionShape3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.70139, 0)
+shape = SubResource("BoxShape3D_8luw3")
+
+[node name="playerShape" type="MeshInstance3D" parent="player/playerCollision"]
+mesh = SubResource("CapsuleMesh_rs4ka")
+
+[node name="mainCamera" type="Camera3D" parent="player/playerCollision/playerShape"]
+transform = Transform3D(0.0283232, 0, 0.999599, 0, 1, 0, -0.999599, 0, 0.0283232, 0.0336967, 0.632671, 0.0121033)
