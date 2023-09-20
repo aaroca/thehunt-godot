@@ -38,6 +38,7 @@ script = ExtResource("1_3ok25")
 transform = Transform3D(-1, -2.52629e-06, 2.1214e-07, 0, 0.0836783, 0.996493, -2.53518e-06, 0.996493, -0.0836783, 0, 0, 0)
 light_color = Color(1, 1, 0.654902, 1)
 light_energy = 2.2
+metadata/_edit_lock_ = true
 
 [node name="environment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2trr6")
