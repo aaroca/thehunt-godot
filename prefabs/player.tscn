@@ -1,8 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://b34rym0jaouju"]
+[gd_scene load_steps=11 format=3 uid="uid://b34rym0jaouju"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_45v8c"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="2_fsokt"]
 [ext_resource type="Texture2D" uid="uid://52rbplp5ou6l" path="res://assets/2d/crosshair001.png" id="3_plbpq"]
+[ext_resource type="Texture2D" uid="uid://ckrsthw6oyir5" path="res://assets/2d/swatter.png" id="4_womcc"]
+[ext_resource type="AudioStream" uid="uid://b0e875xvbigrx" path="res://assets/audio/snap-cut.mp3" id="5_ev6ug"]
+[ext_resource type="Texture2D" uid="uid://cplqo4lcexrv7" path="res://assets/2d/splat20-red.png" id="5_oxl57"]
+[ext_resource type="Script" path="res://scripts/splat.gd" id="6_2dceo"]
+[ext_resource type="AudioStream" uid="uid://cfb2mbnftbkmy" path="res://assets/audio/blood-cut.wav" id="6_s2p51"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8luw3"]
 size = Vector3(1, 2.00823, 1)
@@ -94,8 +99,75 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "Score:"
 
+[node name="swatter" type="TextureRect" parent="playerCollision/playerShape/mainCamera"]
+offset_left = 848.0
+offset_top = 168.0
+offset_right = 1335.0
+offset_bottom = 574.0
+rotation = 0.523598
+texture = ExtResource("4_womcc")
+expand_mode = 1
+
+[node name="splat" type="TextureRect" parent="playerCollision/playerShape/mainCamera"]
+visible = false
+offset_left = 488.0
+offset_top = 232.0
+offset_right = 688.0
+offset_bottom = 432.0
+texture = ExtResource("5_oxl57")
+expand_mode = 1
+script = ExtResource("6_2dceo")
+
+[node name="splatTimer" type="Timer" parent="playerCollision/playerShape/mainCamera/splat"]
+wait_time = 0.5
+
+[node name="gameoverScreen" type="ColorRect" parent="playerCollision/playerShape/mainCamera"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="gameover" type="Label" parent="playerCollision/playerShape/mainCamera/gameoverScreen"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="instructions" type="Label" parent="playerCollision/playerShape/mainCamera/gameoverScreen"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 44.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "ESC: salir                        ENTER: reiniciar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="debugTimeout" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
 
+[node name="snap" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ev6ug")
+
+[node name="blood" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_s2p51")
+volume_db = 5.0
+
+[connection signal="timeout" from="playerCollision/playerShape/mainCamera/splat/splatTimer" to="playerCollision/playerShape/mainCamera/splat" method="_hide"]
 [connection signal="timeout" from="debugTimeout" to="." method="_on_debug_timeout"]
