@@ -1,11 +1,15 @@
 extends MeshInstance3D
 
-@onready var outlineShader = preload("res://shader/outline.gdshader")
+var outlineShaderMaterial = ShaderMaterial.new()
+var originalMaterial = self.mesh.surface_get_material(0)
+
+func _ready():
+	outlineShaderMaterial.shader = preload("res://shader/outline.gdshader")
 
 func on_select():
-	var outlineShaderMaterial = ShaderMaterial.new()
-	outlineShaderMaterial.shader = outlineShader
-	self.mesh.surface_get_material(0).next_pass = outlineShaderMaterial
+	var outlinedMaterial = self.originalMaterial.duplicate()
+	outlinedMaterial.next_pass = self.outlineShaderMaterial
+	self.material_override = outlinedMaterial
 	
 func on_unselect():
-	self.mesh.surface_get_material(0).next_pass = null
+	self.material_override = originalMaterial
