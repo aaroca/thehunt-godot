@@ -4,8 +4,11 @@ var original_mouse_mode = Input.mouse_mode
 var currentMosquito
 var obstacles
 var randomGenerator = RandomNumberGenerator.new()
+var game_ended = false
 
 signal debug(message:String)
+signal smashed_mosquito
+signal missed_mosquito
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -27,23 +30,29 @@ func _process(delta):
 		self._next_mosquito()
 
 func _next_mosquito():
-	if self.currentMosquito and self.currentMosquito.isPlaying():
-		self.currentMosquito.stop()
-	
-	var mosquitoUpdated = false
-	while not mosquitoUpdated:
-		var newMosquito = self.obstacles[self.randomGenerator.randi_range(0, self.obstacles.size() - 1)]
+	if not self.game_ended:
+		if self.currentMosquito and self.currentMosquito.isPlaying():
+			self.currentMosquito.stop()
 		
-		if newMosquito != self.currentMosquito:
-			self.currentMosquito = newMosquito
-			mosquitoUpdated = true
-	
-	if self.currentMosquito and not self.currentMosquito.isPlaying():
-		self.currentMosquito.play()
+		var mosquitoUpdated = false
+		while not mosquitoUpdated:
+			var newMosquito = self.obstacles[self.randomGenerator.randi_range(0, self.obstacles.size() - 1)]
+			
+			if newMosquito != self.currentMosquito:
+				self.currentMosquito = newMosquito
+				mosquitoUpdated = true
+		
+		if self.currentMosquito and not self.currentMosquito.isPlaying():
+			self.currentMosquito.play()
 	
 func smash(target):
 	if target == self.currentMosquito:
-		print("smashed")
+		emit_signal("smashed_mosquito")
 		self._next_mosquito()
 	else:
-		print("miss")
+		emit_signal("missed_mosquito")
+
+func _set_gameover():
+	self.game_ended = true
+	if self.currentMosquito and self.currentMosquito.isPlaying():
+			self.currentMosquito.stop()
