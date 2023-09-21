@@ -8,3 +8,12 @@ func selectMesh():
 
 func unselectMesh():
 	emit_signal("unselect")
+
+func play():
+	$AudioStreamPlayer3D.play()
+	
+func stop():
+	$AudioStreamPlayer3D.stop()
+
+func isPlaying():
+	return $AudioStreamPlayer3D.playing

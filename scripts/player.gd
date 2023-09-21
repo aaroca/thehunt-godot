@@ -10,6 +10,7 @@ var camera_anglev:float = 0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+signal smash(target)
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -38,6 +39,10 @@ func _input(event):
 		var changev=-event.relative.x*mouse_sens
 		camera_anglev+=changev
 		rotate_y(deg_to_rad(changev))
+	elif event is InputEventMouseButton and event.is_action_pressed("smash"):
+		var selectedObject = $playerCollision/playerShape/mainCamera.selectedObject;
+		if selectedObject:
+			emit_signal("smash", selectedObject)
 
 
 func _on_debug(message):
