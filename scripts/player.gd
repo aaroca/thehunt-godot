@@ -95,8 +95,8 @@ func _set_gameover():
 	emit_signal("gameover")
 	
 	if self.current_smashed == self.total_mosquitos:
-		$playerCollision/playerShape/mainCamera/gameoverScreen/gameover.text = "Has matado a todos los moquitos. Esta noche podrás dormir"
+		$playerCollision/playerShape/mainCamera/gameoverScreen/gameover.text = "Has matado a todos los mosquitos. Esta noche podrás dormir."
 	elif self.current_score == 0:
-		$playerCollision/playerShape/mainCamera/gameoverScreen/gameover.text = "Has destrozado todo tu piso. Los mosquitos ganan"
+		$playerCollision/playerShape/mainCamera/gameoverScreen/gameover.text = "Has destrozado todo tu piso. Los mosquitos ganan."
 	
 	$playerCollision/playerShape/mainCamera/gameoverScreen.visible = true
