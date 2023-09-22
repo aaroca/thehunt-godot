@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bfklxn17yt48j"]
+[gd_scene load_steps=28 format=3 uid="uid://bfklxn17yt48j"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_kd17e"]
 [ext_resource type="Texture2D" uid="uid://u1j824icueku" path="res://assets/2d/Canopus_and_Sirius.jpeg" id="2_ufwkr"]
@@ -19,6 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://ye1lqwn31kn" path="res://assets/3d/rugRectangle.glb" id="15_qx4io"]
 [ext_resource type="PackedScene" uid="uid://dqdmnyo3le3yk" path="res://assets/3d/bookcaseClosedWide.glb" id="16_y1q0x"]
 [ext_resource type="PackedScene" uid="uid://dq5fumx3vaqj2" path="res://assets/3d/bookcaseClosedDoors.glb" id="17_87146"]
+[ext_resource type="PackedScene" uid="uid://d3ms3liapj7r" path="res://prefabs/furniture/television.tscn" id="20_pgqlt"]
+[ext_resource type="PackedScene" uid="uid://bamudldp6iygg" path="res://prefabs/furniture/lamp.tscn" id="21_grjiv"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_cr6w8"]
 panorama = ExtResource("2_ufwkr")
@@ -473,6 +475,16 @@ metadata/_edit_lock_ = true
 
 [node name="plant_bushDetailed20" parent="plants" instance=ExtResource("9_es512")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.797039, 0.15, -0.0230145)
+metadata/_edit_lock_ = true
+
+[node name="furniture" type="Node3D" parent="."]
+
+[node name="television" parent="furniture" groups=["furniture"] instance=ExtResource("20_pgqlt")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.281221, 0.415435, -2.38542)
+metadata/_edit_lock_ = true
+
+[node name="lamp" parent="furniture" groups=["furniture"] instance=ExtResource("21_grjiv")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.0971434, 0.335694, -0.172912)
 metadata/_edit_lock_ = true
 
 [connection signal="debug" from="." to="player" method="_on_debug"]

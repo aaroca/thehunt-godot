@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3ms3liapj7r"]
+
+[ext_resource type="PackedScene" uid="uid://c6u8b4aft433k" path="res://prefabs/furniture/furniture.tscn" id="1_5rcic"]
+[ext_resource type="ArrayMesh" uid="uid://bvv0ia4bm682s" path="res://assets/3d/televisionModern_Mesh televisionModern.res" id="2_nd6f7"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_85px6"]
+points = PackedVector3Array(-0.0468569, 0.0214, -0.0508827, 0.334179, 0.453647, 0.0267, 0.329893, 0.0696, 0.0262313, -0.334179, 0.453647, 0.0267, -0.329893, 0.0696, 0.0262313, 0.347835, 0.461968, -0.0044212, -0.347835, 0.461968, -0.0044212, -0.0434453, 0.222868, -0.0478952, 0.347835, 0.0597884, -0.0044212, -0.347835, 0.0597884, -0.0044212, 0.0468569, 0.0214, -0.0508827, 0.0468569, 0.0214, -0.00399483, 0.0434453, 0.222868, -0.0478952, -0.0468569, 0.0214, -0.00399483)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pv3ix"]
+points = PackedVector3Array(0.0434474, 0.0380444, -0.00440311, -0.184787, -0.00543492, -0.0696349, -0.184787, -0.00543492, 0.071673, 0.184787, -0.00543492, -0.0696349, 0.184787, -0.00543492, 0.071673, -0.173898, 0.0271746, -0.0696349, -0.173898, 0.0271746, 0.060801, 0.173898, 0.0271746, -0.0696349, 0.173898, 0.0271746, 0.060801, -0.0434474, 0.0380444, -0.00440311, 0.184787, 0.00543492, 0.071673, -0.184787, 0.00543492, 0.071673, -0.0348, 0.0337175, -0.0381452, 0.0348, 0.0337175, -0.0381452)
+
+[node name="television" instance=ExtResource("1_5rcic")]
+
+[node name="mesh-Televisión" type="MeshInstance3D" parent="." index="1"]
+mesh = ExtResource("2_nd6f7")
+
+[node name="@CollisionShape3D@277923" type="CollisionShape3D" parent="." index="2"]
+shape = SubResource("ConvexPolygonShape3D_85px6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="3"]
+shape = SubResource("ConvexPolygonShape3D_pv3ix")
