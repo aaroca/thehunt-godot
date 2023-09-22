@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bfklxn17yt48j"]
+[gd_scene load_steps=43 format=3 uid="uid://bfklxn17yt48j"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_kd17e"]
 [ext_resource type="Texture2D" uid="uid://u1j824icueku" path="res://assets/2d/Canopus_and_Sirius.jpeg" id="2_ufwkr"]
@@ -35,12 +35,17 @@
 [ext_resource type="PackedScene" uid="uid://cilmhwuwj8cro" path="res://prefabs/furniture/chair.tscn" id="33_s0dki"]
 [ext_resource type="PackedScene" uid="uid://dk57dm16naj25" path="res://prefabs/furniture/fridge.tscn" id="34_60507"]
 [ext_resource type="PackedScene" uid="uid://cul2hidtpxw5w" path="res://prefabs/furniture/pillow.tscn" id="35_2hsct"]
+[ext_resource type="AudioStream" uid="uid://b3acr66tlrskk" path="res://assets/audio/crickets.wav" id="36_v3v8b"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_cr6w8"]
-panorama = ExtResource("2_ufwkr")
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_0aitf"]
+rayleigh_coefficient = 0.42
+turbidity = 32.99
+sun_disk_scale = 0.0
+energy_multiplier = 0.5
+night_sky = ExtResource("2_ufwkr")
 
 [sub_resource type="Sky" id="Sky_pr2r0"]
-sky_material = SubResource("PanoramaSkyMaterial_cr6w8")
+sky_material = SubResource("PhysicalSkyMaterial_0aitf")
 
 [sub_resource type="Environment" id="Environment_2trr6"]
 background_mode = 2
@@ -576,6 +581,12 @@ metadata/_edit_lock_ = true
 [node name="pillow" parent="furniture" groups=["furniture"] instance=ExtResource("35_2hsct")]
 transform = Transform3D(0.707107, 0.707107, 3.09086e-08, 0, -4.37114e-08, 1, 0.707107, -0.707107, -3.09086e-08, -0.712735, 0.268598, -2.03934)
 metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.773554, 0.72895, -1.55553)
+stream = ExtResource("36_v3v8b")
+volume_db = -25.0
+autoplay = true
 
 [connection signal="debug" from="." to="player" method="_on_debug"]
 [connection signal="missed_mosquito" from="." to="player" method="update_missed_mosquitos"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b34rym0jaouju"]
+[gd_scene load_steps=15 format=3 uid="uid://b34rym0jaouju"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_45v8c"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="2_fsokt"]
@@ -15,6 +15,10 @@
 size = Vector3(1, 2.00823, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_rs4ka"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_b6lta"]
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_1sh2v"]
 font_size = 55
@@ -77,8 +81,8 @@ text = "ESC: exit | TAB: release/capture mouse"
 vertical_alignment = 1
 
 [node name="raycast" type="RayCast3D" parent="playerCollision/playerShape/mainCamera"]
-target_position = Vector3(0, 0, -2)
-collision_mask = 3
+target_position = Vector3(0, 0, -1)
+collision_mask = 2
 debug_shape_custom_color = Color(0, 0.701961, 0, 1)
 debug_shape_thickness = 5
 
@@ -127,6 +131,20 @@ offset_bottom = 574.0
 rotation = 0.523598
 texture = ExtResource("4_womcc")
 expand_mode = 1
+
+[node name="object" type="Label" parent="playerCollision/playerShape/mainCamera"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 16.0
+offset_top = -28.0
+offset_right = 232.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_b6lta")
 
 [node name="splat" type="TextureRect" parent="playerCollision/playerShape/mainCamera"]
 visible = false
