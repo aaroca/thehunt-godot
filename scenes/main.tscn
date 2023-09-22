@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://bfklxn17yt48j"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_kd17e"]
-[ext_resource type="PackedScene" uid="uid://c6u8b4aft433k" path="res://prefabs/obstacle.tscn" id="2_8173x"]
+[ext_resource type="PackedScene" uid="uid://c6u8b4aft433k" path="res://prefabs/furniture/furniture.tscn" id="2_8173x"]
 [ext_resource type="PackedScene" uid="uid://b34rym0jaouju" path="res://prefabs/player.tscn" id="3_nh7c5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5vocj"]
@@ -43,9 +43,6 @@ metadata/_edit_lock_ = true
 [node name="environment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2trr6")
 
-[node name="obstacle" parent="." groups=["furniture"] instance=ExtResource("2_8173x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47064, 2.89775, 0)
-
 [node name="floor" type="StaticBody3D" parent="."]
 metadata/_edit_lock_ = true
 
@@ -75,14 +72,11 @@ shape = SubResource("BoxShape3D_sd3hk")
 [node name="player" parent="." instance=ExtResource("3_nh7c5")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.50439, 0.402725, 0)
 
-[node name="obstacle2" parent="." groups=["furniture"] instance=ExtResource("2_8173x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.35237, 1.87015, 0)
+[node name="furniture" parent="." groups=["furniture"] instance=ExtResource("2_8173x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8551, -3.63421)
 
-[node name="obstacle3" parent="." groups=["furniture"] instance=ExtResource("2_8173x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47064, 5.0314, -4.49542)
-
-[node name="obstacle4" parent="." groups=["furniture"] instance=ExtResource("2_8173x")]
-transform = Transform3D(0.64679, 0.346244, -0.679542, 0, 0.891007, 0.453991, 0.762668, -0.293636, 0.576294, 0.69581, 3.99485, 5.04719)
+[node name="furniture2" parent="." groups=["furniture"] instance=ExtResource("2_8173x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.94515, 5.40376)
 
 [connection signal="debug" from="." to="player" method="_on_debug"]
 [connection signal="missed_mosquito" from="." to="player" method="update_missed_mosquitos"]

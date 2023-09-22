@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://c6u8b4aft433k"]
 
-[ext_resource type="Script" path="res://scripts/obstacle.gd" id="1_v7ogf"]
-[ext_resource type="Script" path="res://scripts/obstacleShape.gd" id="1_vqpll"]
-[ext_resource type="AudioStream" uid="uid://bl3nmqxg076cn" path="res://assets/audio/mosquito.wav" id="3_ndua4"]
+[ext_resource type="Script" path="res://scripts/furniture.gd" id="1_8oypv"]
+[ext_resource type="Script" path="res://scripts/furnitureShader.gd" id="2_6o46c"]
+[ext_resource type="AudioStream" uid="uid://bl3nmqxg076cn" path="res://assets/audio/mosquito.wav" id="3_prnwq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_alfra"]
 
@@ -13,10 +13,10 @@ refraction_scale = 0.34
 [sub_resource type="BoxMesh" id="BoxMesh_4ntnc"]
 material = SubResource("StandardMaterial3D_snesq")
 
-[node name="obstacle" type="RigidBody3D"]
+[node name="furniture" type="RigidBody3D"]
 collision_layer = 2
 collision_mask = 7
-script = ExtResource("1_v7ogf")
+script = ExtResource("1_8oypv")
 
 [node name="obstacleCollision" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_alfra")
@@ -24,10 +24,10 @@ shape = SubResource("BoxShape3D_alfra")
 [node name="obstacleShape" type="MeshInstance3D" parent="obstacleCollision"]
 mesh = SubResource("BoxMesh_4ntnc")
 skeleton = NodePath("../../..")
-script = ExtResource("1_vqpll")
+script = ExtResource("2_6o46c")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("3_ndua4")
+stream = ExtResource("3_prnwq")
 attenuation_model = 2
 max_distance = 5.0
 
