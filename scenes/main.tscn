@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://bfklxn17yt48j"]
+[gd_scene load_steps=26 format=3 uid="uid://bfklxn17yt48j"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_kd17e"]
+[ext_resource type="Texture2D" uid="uid://u1j824icueku" path="res://assets/2d/Canopus_and_Sirius.jpeg" id="2_ufwkr"]
 [ext_resource type="PackedScene" uid="uid://b34rym0jaouju" path="res://prefabs/player.tscn" id="3_nh7c5"]
 [ext_resource type="PackedScene" uid="uid://v3xnys74b5yg" path="res://prefabs/structures/wall_corner.tscn" id="3_ux0gf"]
 [ext_resource type="PackedScene" uid="uid://b35do82u5b5gu" path="res://prefabs/structures/wall_half.tscn" id="4_0rp8b"]
@@ -12,15 +13,18 @@
 [ext_resource type="PackedScene" uid="uid://c7xin26pntal6" path="res://assets/3d/bedSingle.glb" id="9_8lfop"]
 [ext_resource type="PackedScene" uid="uid://cbdyp1j5n4fbs" path="res://assets/3d/cabinetBed.glb" id="9_a7tc8"]
 [ext_resource type="PackedScene" uid="uid://bffd0lnkj2vex" path="res://assets/3d/plant_bushDetailed.glb" id="9_es512"]
+[ext_resource type="PackedScene" uid="uid://b3tssx6p867o0" path="res://assets/3d/deskCorner.glb" id="10_m6q7l"]
+[ext_resource type="PackedScene" uid="uid://bydcbdwnnl35j" path="res://assets/3d/cabinetTelevision.glb" id="13_kdki4"]
+[ext_resource type="PackedScene" uid="uid://b8r73le8i36ql" path="res://assets/3d/loungeSofa.glb" id="14_hahwo"]
+[ext_resource type="PackedScene" uid="uid://ye1lqwn31kn" path="res://assets/3d/rugRectangle.glb" id="15_qx4io"]
+[ext_resource type="PackedScene" uid="uid://dqdmnyo3le3yk" path="res://assets/3d/bookcaseClosedWide.glb" id="16_y1q0x"]
+[ext_resource type="PackedScene" uid="uid://dq5fumx3vaqj2" path="res://assets/3d/bookcaseClosedDoors.glb" id="17_87146"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5vocj"]
-sky_top_color = Color(0.00784314, 0.0235294, 0.101961, 1)
-sky_horizon_color = Color(0.117647, 0.141176, 0.184314, 1)
-ground_bottom_color = Color(0.133333, 0.192157, 0.160784, 1)
-ground_horizon_color = Color(0.133333, 0.192157, 0.160784, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_cr6w8"]
+panorama = ExtResource("2_ufwkr")
 
 [sub_resource type="Sky" id="Sky_pr2r0"]
-sky_material = SubResource("ProceduralSkyMaterial_5vocj")
+sky_material = SubResource("PanoramaSkyMaterial_cr6w8")
 
 [sub_resource type="Environment" id="Environment_2trr6"]
 background_mode = 2
@@ -44,14 +48,14 @@ script = ExtResource("1_kd17e")
 transform = Transform3D(-1, -2.52629e-06, 2.1214e-07, 0, 0.0836783, 0.996493, -2.53518e-06, 0.996493, -0.0836783, 0, 0, 0)
 light_color = Color(0.733333, 0.968627, 0.984314, 1)
 light_energy = 1.286
-sky_mode = 1
+sky_mode = 2
 metadata/_edit_lock_ = true
 
 [node name="environment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2trr6")
 
 [node name="player" parent="." instance=ExtResource("3_nh7c5")]
-transform = Transform3D(-1.74846e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.74846e-08, -0.36761, 0.251362, -0.724421)
+transform = Transform3D(0.285784, 0, 0.27987, 0, 0.4, 0, -0.27987, 0, 0.285784, 0.182993, 0.251362, -0.688188)
 
 [node name="bedroom" type="Node3D" parent="."]
 metadata/_edit_lock_ = true
@@ -130,6 +134,7 @@ metadata/_edit_lock_ = true
 
 [node name="doorway" parent="bedroom" instance=ExtResource("7_eo406")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.47926, 0.0971174, -1.80571)
+metadata/_edit_lock_ = true
 
 [node name="floor" type="StaticBody3D" parent="bedroom"]
 metadata/_edit_lock_ = true
@@ -161,10 +166,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13635, 1.11814, -1.73763)
 metadata/_edit_lock_ = true
 
 [node name="cabinetBed" parent="bedroom" instance=ExtResource("9_a7tc8")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0447071, 0.1, -0.294259)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.246857, 0.1, -0.294259)
+metadata/_edit_lock_ = true
+
+[node name="deskCorner" parent="bedroom" instance=ExtResource("10_m6q7l")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.4665, 0.1, -1.1137)
+metadata/_edit_lock_ = true
 
 [node name="bedSingle" parent="bedroom" instance=ExtResource("9_8lfop")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.000434041, 0.1, -1.21595)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.247457, 0.1, -1.21595)
+metadata/_edit_lock_ = true
+
+[node name="cabinetTelevision" parent="bedroom" instance=ExtResource("13_kdki4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.144769, 0.1, -2.77431)
+metadata/_edit_lock_ = true
+
+[node name="loungeSofa" parent="bedroom" instance=ExtResource("14_hahwo")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.414587, 0, -1.82423)
+metadata/_edit_lock_ = true
+
+[node name="rugRectangle" parent="bedroom" instance=ExtResource("15_qx4io")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.21164, 0.0979702, -0.203931)
+metadata/_edit_lock_ = true
+
+[node name="bookcaseClosedWide" parent="bedroom" instance=ExtResource("16_y1q0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.86053, 0.1, -2.78718)
+metadata/_edit_lock_ = true
+
+[node name="bookcaseClosedDoors" parent="bedroom" instance=ExtResource("17_87146")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.37551, 0.1, -2.78477)
 metadata/_edit_lock_ = true
 
 [node name="trees" type="Node3D" parent="."]
