@@ -2,7 +2,7 @@ extends Node3D
 
 var original_mouse_mode = Input.mouse_mode
 var currentMosquito
-var obstacles
+var furniture
 var randomGenerator = RandomNumberGenerator.new()
 var game_ended = false
 
@@ -12,7 +12,7 @@ signal missed_mosquito
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	obstacles = get_tree().get_nodes_in_group("obstacles")
+	furniture = get_tree().get_nodes_in_group("furniture")
 
 func _input(event):
 	if event.is_action_pressed("ui_exit"):
@@ -31,7 +31,7 @@ func _next_mosquito():
 		
 		var mosquitoUpdated = false
 		while not mosquitoUpdated:
-			var newMosquito = self.obstacles[self.randomGenerator.randi_range(0, self.obstacles.size() - 1)]
+			var newMosquito = self.furniture[self.randomGenerator.randi_range(0, self.furniture.size() - 1)]
 			
 			if newMosquito != self.currentMosquito:
 				self.currentMosquito = newMosquito
