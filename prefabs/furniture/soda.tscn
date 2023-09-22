@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2sewdqc0hdy6"]
+
+[ext_resource type="PackedScene" uid="uid://c6u8b4aft433k" path="res://prefabs/furniture/furniture.tscn" id="1_sdyv0"]
+[ext_resource type="ArrayMesh" uid="uid://c81eflswklspc" path="res://assets/3d/sodaCan_Mesh sodaCan.res" id="2_oaad3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x06ci"]
+size = Vector3(0.0472429, 0.0687266, 0.0470489)
+
+[node name="soda" instance=ExtResource("1_sdyv0")]
+
+[node name="mesh-Refresco" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+mesh = ExtResource("2_oaad3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0339484, 0)
+shape = SubResource("BoxShape3D_x06ci")

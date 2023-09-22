@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://crwfhf7ha8h6c"]
+
+[ext_resource type="PackedScene" uid="uid://c6u8b4aft433k" path="res://prefabs/furniture/furniture.tscn" id="1_n6on6"]
+[ext_resource type="ArrayMesh" uid="uid://cg7qhki40itao" path="res://assets/3d/pizza_Mesh slice3.res" id="2_gpvcv"]
+[ext_resource type="ArrayMesh" uid="uid://dc73bdocr7wiw" path="res://assets/3d/pizzaBox_Mesh pizzaBox.res" id="3_c4675"]
+[ext_resource type="ArrayMesh" uid="uid://dgfougd62s0c6" path="res://assets/3d/pizzaBox_Mesh lid.res" id="4_grl3o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n171b"]
+size = Vector3(0.190162, 0.182401, 0.196005)
+
+[node name="pizza" instance=ExtResource("1_n6on6")]
+
+[node name="mesh-Pizza" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(0.159228, 0, -0.121023, 0, 0.2, 0, 0.121023, 0, 0.159228, 0.0449068, 0.00459586, 0.0364222)
+mesh = ExtResource("2_gpvcv")
+
+[node name="box" type="MeshInstance3D" parent="." index="2"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+mesh = ExtResource("3_c4675")
+
+[node name="lid" type="MeshInstance3D" parent="." index="3"]
+transform = Transform3D(0.0863353, 0.180406, -1.57716e-08, 0.180406, -0.0863353, 7.54767e-09, -7.64274e-16, -1.74846e-08, -0.2, -0.0573824, 0.098543, 0)
+mesh = ExtResource("4_grl3o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0900148, 0)
+shape = SubResource("BoxShape3D_n171b")

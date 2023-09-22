@@ -233,8 +233,8 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -172.0
-offset_bottom = -146.0
+offset_top = -228.0
+offset_bottom = -202.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Créditos"
@@ -247,8 +247,8 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = 276.0
-offset_bottom = 302.0
+offset_top = 292.0
+offset_bottom = 318.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "ESC: salir                 ENTER: reiniciar"
@@ -261,8 +261,8 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -260.0
-offset_bottom = -172.0
+offset_top = -308.0
+offset_bottom = -220.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "THE HUNT"
@@ -270,7 +270,35 @@ label_settings = SubResource("LabelSettings_1sh2v")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="RichTextLabel" type="RichTextLabel" parent="playerCollision/playerShape/mainCamera/creditsScreen"]
+layout_mode = 0
+offset_top = 128.0
+offset_right = 1152.0
+offset_bottom = 608.0
+bbcode_enabled = true
+text = "Idea y desarrollo
+Álvaro Aroca
+
+Imágenes
+Cielo de noche: Canopus and Sirius (Wikipedia - Bob)
+Matamoscas: Fly Swatter (Openclipart - Bryan Nielsen)
+Cursor: Crosshair Pack (Kenney.nl)
+Mancha sangre: Splat Pack (Kenney.nl)
+Icono ratón: 1-Bit Input Prompts Pixel 16× (Kenney.nl)
+
+Audio
+Mosquito aplastado:  Squelching Sound Effects - Squelching SFX [3]  (Freesound - Andrew Weigh)
+Golpe matamoscas:  Casio 9850GB Plus Calculator Sounds - Plastic snap (Freesound - redpanda69)
+Mosquito: Flying Mosquito (Freesound - Zywx)
+Estática: Static (Freesound - mrwienerdog)
+Grillos: Crickets (Freesound - ogixiscracked1)
+
+Modelos
+Food Kit (Kenney.nl)
+Furniture Kit (Kenney.nl)"
+
 [node name="titleScreen" type="ColorRect" parent="playerCollision/playerShape/mainCamera"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

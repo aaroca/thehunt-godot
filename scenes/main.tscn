@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bfklxn17yt48j"]
+[gd_scene load_steps=45 format=3 uid="uid://bfklxn17yt48j"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_kd17e"]
 [ext_resource type="Texture2D" uid="uid://u1j824icueku" path="res://assets/2d/Canopus_and_Sirius.jpeg" id="2_ufwkr"]
@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://b3tssx6p867o0" path="res://assets/3d/deskCorner.glb" id="10_m6q7l"]
 [ext_resource type="PackedScene" uid="uid://bydcbdwnnl35j" path="res://assets/3d/cabinetTelevision.glb" id="13_kdki4"]
 [ext_resource type="PackedScene" uid="uid://b8r73le8i36ql" path="res://assets/3d/loungeSofa.glb" id="14_hahwo"]
-[ext_resource type="PackedScene" uid="uid://ye1lqwn31kn" path="res://assets/3d/rugRectangle.glb" id="15_qx4io"]
+[ext_resource type="PackedScene" uid="uid://cekw088omk4av" path="res://assets/3d/rugRectangle.glb" id="15_qx4io"]
 [ext_resource type="PackedScene" uid="uid://dqdmnyo3le3yk" path="res://assets/3d/bookcaseClosedWide.glb" id="16_y1q0x"]
 [ext_resource type="PackedScene" uid="uid://dq5fumx3vaqj2" path="res://assets/3d/bookcaseClosedDoors.glb" id="17_87146"]
 [ext_resource type="PackedScene" uid="uid://baefr55gij1f6" path="res://prefabs/furniture/speaker.tscn" id="20_dh47i"]
@@ -36,6 +36,8 @@
 [ext_resource type="PackedScene" uid="uid://dk57dm16naj25" path="res://prefabs/furniture/fridge.tscn" id="34_60507"]
 [ext_resource type="PackedScene" uid="uid://cul2hidtpxw5w" path="res://prefabs/furniture/pillow.tscn" id="35_2hsct"]
 [ext_resource type="AudioStream" uid="uid://b3acr66tlrskk" path="res://assets/audio/crickets.wav" id="36_v3v8b"]
+[ext_resource type="PackedScene" uid="uid://c2sewdqc0hdy6" path="res://prefabs/furniture/soda.tscn" id="36_wicbe"]
+[ext_resource type="PackedScene" uid="uid://crwfhf7ha8h6c" path="res://prefabs/furniture/pizza.tscn" id="37_o8vck"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_0aitf"]
 rayleigh_coefficient = 0.42
@@ -511,7 +513,7 @@ transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -2.297
 metadata/_edit_lock_ = true
 
 [node name="books" parent="furniture" groups=["furniture"] instance=ExtResource("23_oj6hm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.30215, 0.699135, -2.89661)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.46544, 0.699135, -2.89661)
 metadata/_edit_lock_ = true
 
 [node name="books2" parent="furniture" groups=["furniture"] instance=ExtResource("23_oj6hm")]
@@ -523,7 +525,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.47445, 0.235785, -2.89661)
 metadata/_edit_lock_ = true
 
 [node name="books4" parent="furniture" groups=["furniture"] instance=ExtResource("23_oj6hm")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.69407, 0.483644, -0.254067)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27278, 0.696329, -2.90491)
 metadata/_edit_lock_ = true
 
 [node name="box_closed" parent="furniture" groups=["furniture"] instance=ExtResource("24_wgmxg")]
@@ -580,6 +582,14 @@ metadata/_edit_lock_ = true
 
 [node name="pillow" parent="furniture" groups=["furniture"] instance=ExtResource("35_2hsct")]
 transform = Transform3D(0.707107, 0.707107, 3.09086e-08, 0, -4.37114e-08, 1, 0.707107, -0.707107, -3.09086e-08, -0.712735, 0.268598, -2.03934)
+metadata/_edit_lock_ = true
+
+[node name="soda" parent="furniture" groups=["furniture"] instance=ExtResource("36_wicbe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.57839, 0.402218, -2.87313)
+metadata/_edit_lock_ = true
+
+[node name="pizza" parent="furniture" groups=["furniture"] instance=ExtResource("37_o8vck")]
+transform = Transform3D(-0.0902502, 0, 0.995919, 0, 1, 0, -0.995919, 0, -0.0902502, -1.68494, 0.485593, -0.31608)
 metadata/_edit_lock_ = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
