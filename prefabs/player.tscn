@@ -1,18 +1,23 @@
-[gd_scene load_steps=11 format=3 uid="uid://b34rym0jaouju"]
+[gd_scene load_steps=14 format=3 uid="uid://b34rym0jaouju"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_45v8c"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="2_fsokt"]
 [ext_resource type="Texture2D" uid="uid://52rbplp5ou6l" path="res://assets/2d/crosshair001.png" id="3_plbpq"]
+[ext_resource type="Texture2D" uid="uid://b2vs3wr1x0wc3" path="res://assets/2d/tile_0111.png" id="4_6404x"]
 [ext_resource type="Texture2D" uid="uid://ckrsthw6oyir5" path="res://assets/2d/swatter.png" id="4_womcc"]
 [ext_resource type="AudioStream" uid="uid://b0e875xvbigrx" path="res://assets/audio/snap-cut.mp3" id="5_ev6ug"]
 [ext_resource type="Texture2D" uid="uid://cplqo4lcexrv7" path="res://assets/2d/splat20-red.png" id="5_oxl57"]
 [ext_resource type="Script" path="res://scripts/splat.gd" id="6_2dceo"]
 [ext_resource type="AudioStream" uid="uid://cfb2mbnftbkmy" path="res://assets/audio/blood-cut.wav" id="6_s2p51"]
+[ext_resource type="Script" path="res://scripts/titleScreen.gd" id="8_5ylce"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8luw3"]
 size = Vector3(1, 2.00823, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_rs4ka"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1sh2v"]
+font_size = 55
 
 [node name="player" type="CharacterBody3D"]
 transform = Transform3D(0.99983, 0, -0.0184122, 0, 1, 0, 0.0184122, 0, 0.99983, 0, 0, 0)
@@ -82,22 +87,36 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 8.0
-offset_top = -26.0
+offset_top = -72.0
 offset_right = 169.0
+offset_bottom = -46.0
 grow_vertical = 0
-text = "Smashed mosquitos:"
+text = "Mosquitos aniquilados:"
 
 [node name="score" type="Label" parent="playerCollision/playerShape/mainCamera"]
-anchors_preset = 3
-anchor_left = 1.0
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -152.0
-offset_top = -26.0
-grow_horizontal = 0
+offset_left = 8.0
+offset_top = -40.0
+offset_right = 160.0
+offset_bottom = -14.0
 grow_vertical = 0
-text = "Score:"
+text = "Estado de la vivienda:"
+
+[node name="mouse" type="TextureRect" parent="playerCollision/playerShape/mainCamera"]
+offset_left = 8.0
+offset_top = 544.0
+offset_right = 32.0
+offset_bottom = 568.0
+texture = ExtResource("4_6404x")
+expand_mode = 1
+
+[node name="controllers" type="Label" parent="playerCollision/playerShape/mainCamera/mouse"]
+offset_left = 24.0
+offset_right = 203.0
+offset_bottom = 26.0
+text = "+ Foco en objeto: golpear"
 
 [node name="swatter" type="TextureRect" parent="playerCollision/playerShape/mainCamera"]
 offset_left = 848.0
@@ -110,10 +129,17 @@ expand_mode = 1
 
 [node name="splat" type="TextureRect" parent="playerCollision/playerShape/mainCamera"]
 visible = false
-offset_left = 488.0
-offset_top = 232.0
-offset_right = 688.0
-offset_bottom = 432.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("5_oxl57")
 expand_mode = 1
 script = ExtResource("6_2dceo")
@@ -154,9 +180,143 @@ offset_top = 44.0
 offset_bottom = 67.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "ESC: salir                        ENTER: reiniciar"
+text = "ESC: salir                        TAB: créditos                 ENTER: reiniciar"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="title" type="Label" parent="playerCollision/playerShape/mainCamera/gameoverScreen"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -196.0
+offset_bottom = -108.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "THE HUNT"
+label_settings = SubResource("LabelSettings_1sh2v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="creditsScreen" type="ColorRect" parent="playerCollision/playerShape/mainCamera"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="credits" type="Label" parent="playerCollision/playerShape/mainCamera/creditsScreen"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -172.0
+offset_bottom = -146.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Créditos"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="instructions" type="Label" parent="playerCollision/playerShape/mainCamera/creditsScreen"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 276.0
+offset_bottom = 302.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "ESC: salir                 ENTER: reiniciar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="title" type="Label" parent="playerCollision/playerShape/mainCamera/creditsScreen"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -260.0
+offset_bottom = -172.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "THE HUNT"
+label_settings = SubResource("LabelSettings_1sh2v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="titleScreen" type="ColorRect" parent="playerCollision/playerShape/mainCamera"]
+process_mode = 4
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("8_5ylce")
+
+[node name="mainTheme" type="Label" parent="playerCollision/playerShape/mainCamera/titleScreen"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -28.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Otra más noche que esos malditos mosquitos no te dejan dormir. Acaba con ellos."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="instructions" type="Label" parent="playerCollision/playerShape/mainCamera/titleScreen"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 276.0
+offset_bottom = 302.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "ESC: salir                 ENTER: reiniciar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="title" type="Label" parent="playerCollision/playerShape/mainCamera/titleScreen"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -260.0
+offset_bottom = -172.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "THE HUNT"
+label_settings = SubResource("LabelSettings_1sh2v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="timer" type="Label" parent="playerCollision/playerShape/mainCamera/titleScreen"]
+layout_mode = 0
+offset_left = 540.0
+offset_top = 344.0
+offset_right = 580.0
+offset_bottom = 367.0
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="titleTimer" type="Timer" parent="playerCollision/playerShape/mainCamera/titleScreen"]
+wait_time = 3.0
 
 [node name="debugTimeout" type="Timer" parent="."]
 wait_time = 2.0
@@ -170,4 +330,5 @@ stream = ExtResource("6_s2p51")
 volume_db = 5.0
 
 [connection signal="timeout" from="playerCollision/playerShape/mainCamera/splat/splatTimer" to="playerCollision/playerShape/mainCamera/splat" method="_hide"]
+[connection signal="timeout" from="playerCollision/playerShape/mainCamera/titleScreen/titleTimer" to="playerCollision/playerShape/mainCamera/titleScreen" method="_hide"]
 [connection signal="timeout" from="debugTimeout" to="." method="_on_debug_timeout"]

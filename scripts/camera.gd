@@ -12,6 +12,9 @@ func _input(event):
 			if camera_anglev+changev>-50 and camera_anglev+changev<50:
 				camera_anglev+=changev
 				rotate_x(deg_to_rad(changev))
+	else:
+		if event.is_action_pressed("ui_tab") and not $creditsScreen.visible:
+			$creditsScreen.visible = true
 
 func _physics_process(delta):
 	if $raycast.is_colliding():

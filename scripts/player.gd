@@ -20,7 +20,7 @@ signal gameover
 
 func _ready():
 	$playerCollision/playerShape/mainCamera/mosquitos.text = "Mosquitos aniquilados: " + str(self.current_smashed) + "/" + str(self.total_mosquitos)
-	$playerCollision/playerShape/mainCamera/score.text = "Puntuación: " + str(self.current_score)
+	$playerCollision/playerShape/mainCamera/score.text = "Estado de la vivienda: " + str(self.current_score) + "%"
 
 func _physics_process(delta):
 	if not self.game_ended:
@@ -84,7 +84,7 @@ func update_missed_mosquitos():
 		if not $snap.playing:
 			$snap.play()
 		self.current_score -= self.score_miss
-		$playerCollision/playerShape/mainCamera/score.text = "Puntuación: " + str(self.current_score)
+		$playerCollision/playerShape/mainCamera/score.text = "Estado de la vivienda: " + str(self.current_score) + "%"
 		
 		if self.current_score == 0:
 			self._set_gameover()
@@ -97,6 +97,6 @@ func _set_gameover():
 	if self.current_smashed == self.total_mosquitos:
 		$playerCollision/playerShape/mainCamera/gameoverScreen/gameover.text = "Has matado a todos los mosquitos. Esta noche podrás dormir."
 	elif self.current_score == 0:
-		$playerCollision/playerShape/mainCamera/gameoverScreen/gameover.text = "Has destrozado todo tu piso. Los mosquitos ganan."
+		$playerCollision/playerShape/mainCamera/gameoverScreen/gameover.text = "Has destrozado tu vivienda. Los mosquitos ganan."
 	
 	$playerCollision/playerShape/mainCamera/gameoverScreen.visible = true

@@ -18,8 +18,7 @@ func _input(event):
 	if event.is_action_pressed("ui_exit"):
 		get_tree().quit()
 	elif event.is_action_pressed("restart"):
-		if game_ended:
-			get_tree().reload_current_scene()
+		get_tree().reload_current_scene()
 
 func _process(delta):
 	if !self.currentMosquito:
