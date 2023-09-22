@@ -1,13 +1,14 @@
 extends RigidBody3D
 
-signal select;
-signal unselect;
+var meshName
 
-func selectMesh():
-	emit_signal("select")
+func _ready():
+	for child in self.get_children():
+		if child.name.contains("mesh-"):
+			meshName = child.name.replace("mesh-", "")
 
-func unselectMesh():
-	emit_signal("unselect")
+func mesh_name():
+	return self.meshName
 
 func play():
 	$AudioStreamPlayer3D.play()

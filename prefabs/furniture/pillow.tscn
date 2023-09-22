@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://besfymv4gaacy"]
+
+[ext_resource type="PackedScene" uid="uid://c6u8b4aft433k" path="res://prefabs/furniture/furniture.tscn" id="1_yaqkk"]
+[ext_resource type="ArrayMesh" uid="uid://byvdid14nkkt6" path="res://assets/3d/pillow_Mesh pillow.res" id="2_p885e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jp4ge"]
+size = Vector3(0.221361, 0.217778, 0.0531023)
+
+[node name="pillow" instance=ExtResource("1_yaqkk")]
+
+[node name="mesh-Almohada" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(3, 0, 0, 0, 2.92816, -0.65259, 0, 0.65259, 2.92816, -0.200675, -0.269085, 0.0472863)
+mesh = ExtResource("2_p885e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.110553, 0.124673, -0.0142219)
+shape = SubResource("BoxShape3D_jp4ge")

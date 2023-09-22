@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6mqtdul72e88"]
+
+[ext_resource type="PackedScene" uid="uid://c06ipqn5wb2vh" path="res://assets/3d/doorway.glb" id="1_tdie0"]
+
+[node name="doorway" instance=ExtResource("1_tdie0")]

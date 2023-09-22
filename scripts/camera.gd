@@ -9,7 +9,7 @@ func _input(event):
 	if not self.game_ended:
 		if event is InputEventMouseMotion:
 			var changev=-event.relative.y*mouse_sens
-			if camera_anglev+changev>-50 and camera_anglev+changev<50:
+			if camera_anglev+changev>-100 and camera_anglev+changev<50:
 				camera_anglev+=changev
 				rotate_x(deg_to_rad(changev))
 	else:
@@ -22,10 +22,10 @@ func _physics_process(delta):
 
 		if newSelectedObject != selectedObject:
 			if selectedObject:
-				selectedObject.unselectMesh()
+				$object.text = ""
 			
 			selectedObject = newSelectedObject
-			selectedObject.selectMesh()
+			$object.text = selectedObject.mesh_name()
 	elif selectedObject:
-		selectedObject.unselectMesh()
+		$object.text = ""
 		selectedObject = null

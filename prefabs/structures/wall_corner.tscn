@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://v3xnys74b5yg"]
+
+[ext_resource type="PackedScene" uid="uid://ucjtax0227io" path="res://assets/3d/wallCorner.glb" id="1_u81mu"]
+
+[node name="wallCorner" instance=ExtResource("1_u81mu")]

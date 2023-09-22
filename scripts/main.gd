@@ -21,8 +21,9 @@ func _input(event):
 		get_tree().reload_current_scene()
 
 func _process(delta):
-	if !self.currentMosquito:
-		self._next_mosquito()
+	#if !self.currentMosquito:
+		#self._next_mosquito()
+	pass
 
 func _next_mosquito():
 	if not self.game_ended:

@@ -1,14 +1,23 @@
-[gd_scene load_steps=11 format=3 uid="uid://bfklxn17yt48j"]
+[gd_scene load_steps=19 format=3 uid="uid://bfklxn17yt48j"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_kd17e"]
-[ext_resource type="PackedScene" uid="uid://c6u8b4aft433k" path="res://prefabs/furniture/furniture.tscn" id="2_8173x"]
 [ext_resource type="PackedScene" uid="uid://b34rym0jaouju" path="res://prefabs/player.tscn" id="3_nh7c5"]
+[ext_resource type="PackedScene" uid="uid://v3xnys74b5yg" path="res://prefabs/structures/wall_corner.tscn" id="3_ux0gf"]
+[ext_resource type="PackedScene" uid="uid://b35do82u5b5gu" path="res://prefabs/structures/wall_half.tscn" id="4_0rp8b"]
+[ext_resource type="PackedScene" uid="uid://b6wrdupifjsif" path="res://prefabs/structures/wall_window_slide.tscn" id="5_dypnn"]
+[ext_resource type="PackedScene" uid="uid://c2qr5ipohaiij" path="res://prefabs/structures/wall_doorway.tscn" id="6_ggtca"]
+[ext_resource type="PackedScene" uid="uid://b6mqtdul72e88" path="res://prefabs/structures/doorway.tscn" id="7_eo406"]
+[ext_resource type="PackedScene" uid="uid://ujur54unyopg" path="res://prefabs/structures/lamp.tscn" id="8_3i3ts"]
+[ext_resource type="PackedScene" uid="uid://bklov78fgg28q" path="res://assets/3d/tree_pineTallD.glb" id="8_ul7ch"]
+[ext_resource type="PackedScene" uid="uid://c7xin26pntal6" path="res://assets/3d/bedSingle.glb" id="9_8lfop"]
+[ext_resource type="PackedScene" uid="uid://cbdyp1j5n4fbs" path="res://assets/3d/cabinetBed.glb" id="9_a7tc8"]
+[ext_resource type="PackedScene" uid="uid://bffd0lnkj2vex" path="res://assets/3d/plant_bushDetailed.glb" id="9_es512"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5vocj"]
-sky_top_color = Color(0.403922, 0.537255, 0.917647, 1)
-sky_horizon_color = Color(0.634314, 0.682353, 0.769608, 1)
+sky_top_color = Color(0.00784314, 0.0235294, 0.101961, 1)
+sky_horizon_color = Color(0.117647, 0.141176, 0.184314, 1)
 ground_bottom_color = Color(0.133333, 0.192157, 0.160784, 1)
-ground_horizon_color = Color(0.634314, 0.682353, 0.769608, 1)
+ground_horizon_color = Color(0.133333, 0.192157, 0.160784, 1)
 
 [sub_resource type="Sky" id="Sky_pr2r0"]
 sky_material = SubResource("ProceduralSkyMaterial_5vocj")
@@ -22,61 +31,419 @@ tonemap_mode = 2
 size = Vector3(20, 0.2, 20)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_egurx"]
-albedo_color = Color(0.184314, 0.25098, 0.184314, 1)
+albedo_color = Color(0.133333, 0.192157, 0.160784, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_la11p"]
 material = SubResource("StandardMaterial3D_egurx")
 size = Vector3(20, 0.2, 20)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_sd3hk"]
-size = Vector3(21, 5, 0.1)
 
 [node name="tests" type="Node3D"]
 script = ExtResource("1_kd17e")
 
 [node name="sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-1, -2.52629e-06, 2.1214e-07, 0, 0.0836783, 0.996493, -2.53518e-06, 0.996493, -0.0836783, 0, 0, 0)
-light_color = Color(1, 1, 0.654902, 1)
-light_energy = 2.2
+light_color = Color(0.733333, 0.968627, 0.984314, 1)
+light_energy = 1.286
+sky_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="environment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2trr6")
 
-[node name="floor" type="StaticBody3D" parent="."]
+[node name="player" parent="." instance=ExtResource("3_nh7c5")]
+transform = Transform3D(-1.74846e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.74846e-08, -0.36761, 0.251362, -0.724421)
+
+[node name="bedroom" type="Node3D" parent="."]
 metadata/_edit_lock_ = true
 
-[node name="floorCollision" type="CollisionShape3D" parent="floor"]
+[node name="wallCorner" parent="bedroom" instance=ExtResource("3_ux0gf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00144106, 0.1, -0.00171745)
+metadata/_edit_lock_ = true
+
+[node name="wallCorner4" parent="bedroom" instance=ExtResource("3_ux0gf")]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -2.5486, 0.1, -0.552047)
+metadata/_edit_lock_ = true
+
+[node name="wallCorner2" parent="bedroom" instance=ExtResource("3_ux0gf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.549583, 0.1, -2.54663)
+metadata/_edit_lock_ = true
+
+[node name="wallCorner3" parent="bedroom" instance=ExtResource("3_ux0gf")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.99877, 0.1, -3.09729)
+metadata/_edit_lock_ = true
+
+[node name="wallHalf" parent="bedroom" instance=ExtResource("4_0rp8b")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.549982, 0.0999392, -0.549189)
+metadata/_edit_lock_ = true
+
+[node name="wallHalf7" parent="bedroom" instance=ExtResource("4_0rp8b")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.49872, 0.0999392, -1.04714)
+metadata/_edit_lock_ = true
+
+[node name="wallHalf12" parent="bedroom" instance=ExtResource("4_0rp8b")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.49855, 0.0999392, -0.550212)
+metadata/_edit_lock_ = true
+
+[node name="wallHalf2" parent="bedroom" instance=ExtResource("4_0rp8b")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.549982, 0.0999392, -2.04708)
+metadata/_edit_lock_ = true
+
+[node name="wallHalf3" parent="bedroom" instance=ExtResource("4_0rp8b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00015, 0.0999392, -3.04735)
+metadata/_edit_lock_ = true
+
+[node name="wallHalf4" parent="bedroom" instance=ExtResource("4_0rp8b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.500408, 0.0999392, -3.04696)
+metadata/_edit_lock_ = true
+
+[node name="wallHalf5" parent="bedroom" instance=ExtResource("4_0rp8b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.00024, 0.0999392, -3.04735)
+metadata/_edit_lock_ = true
+
+[node name="wallHalf6" parent="bedroom" instance=ExtResource("4_0rp8b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5005, 0.0999392, -3.04696)
+metadata/_edit_lock_ = true
+
+[node name="wallHalf8" parent="bedroom" instance=ExtResource("4_0rp8b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.998342, 0.0999392, -0.00207222)
+metadata/_edit_lock_ = true
+
+[node name="wallHalf9" parent="bedroom" instance=ExtResource("4_0rp8b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.498602, 0.0999392, -0.00167501)
+metadata/_edit_lock_ = true
+
+[node name="wallHalf10" parent="bedroom" instance=ExtResource("4_0rp8b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.99843, 0.0999392, -0.00207222)
+metadata/_edit_lock_ = true
+
+[node name="wallHalf11" parent="bedroom" instance=ExtResource("4_0rp8b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49869, 0.0999392, -0.00167501)
+metadata/_edit_lock_ = true
+
+[node name="wallWindowSlide" parent="bedroom" instance=ExtResource("5_dypnn")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.550046, 0.1, -1.04683)
+metadata/_edit_lock_ = true
+
+[node name="wallDoorway" parent="bedroom" instance=ExtResource("6_ggtca")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.49874, 0.1, -1.54695)
+metadata/_edit_lock_ = true
+
+[node name="doorway" parent="bedroom" instance=ExtResource("7_eo406")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.47926, 0.0971174, -1.80571)
+
+[node name="floor" type="StaticBody3D" parent="bedroom"]
+metadata/_edit_lock_ = true
+
+[node name="floorCollision" type="CollisionShape3D" parent="bedroom/floor"]
 shape = SubResource("BoxShape3D_sy1m3")
+metadata/_edit_lock_ = true
 
-[node name="floorShape" type="MeshInstance3D" parent="floor/floorCollision"]
+[node name="floorShape" type="MeshInstance3D" parent="bedroom/floor/floorCollision"]
 mesh = SubResource("BoxMesh_la11p")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
+metadata/_edit_lock_ = true
 
-[node name="invisibleWall1" type="CollisionShape3D" parent="floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69095, 9.93749)
-shape = SubResource("BoxShape3D_sd3hk")
+[node name="roof" type="StaticBody3D" parent="bedroom"]
+transform = Transform3D(0.156254, 0, 0, 0, 1, 0, 0, 0, 0.158446, -1.00859, 1.44297, -1.54923)
+metadata/_edit_lock_ = true
 
-[node name="invisibleWall2" type="CollisionShape3D" parent="floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69095, -9.95933)
-shape = SubResource("BoxShape3D_sd3hk")
+[node name="floorCollision" type="CollisionShape3D" parent="bedroom/roof"]
+shape = SubResource("BoxShape3D_sy1m3")
+metadata/_edit_lock_ = true
 
-[node name="invisibleWall3" type="CollisionShape3D" parent="floor"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.94055, 1.69095, -0.120233)
-shape = SubResource("BoxShape3D_sd3hk")
+[node name="floorShape" type="MeshInstance3D" parent="bedroom/roof/floorCollision"]
+mesh = SubResource("BoxMesh_la11p")
+skeleton = NodePath("../../../..")
+metadata/_edit_lock_ = true
 
-[node name="invisibleWall4" type="CollisionShape3D" parent="floor"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.95662, 1.69095, -0.120233)
-shape = SubResource("BoxShape3D_sd3hk")
+[node name="lampSquareCeiling" parent="bedroom" instance=ExtResource("8_3i3ts")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13635, 1.11814, -1.73763)
+metadata/_edit_lock_ = true
 
-[node name="player" parent="." instance=ExtResource("3_nh7c5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.50439, 0.402725, 0)
+[node name="cabinetBed" parent="bedroom" instance=ExtResource("9_a7tc8")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0447071, 0.1, -0.294259)
 
-[node name="furniture" parent="." groups=["furniture"] instance=ExtResource("2_8173x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8551, -3.63421)
+[node name="bedSingle" parent="bedroom" instance=ExtResource("9_8lfop")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.000434041, 0.1, -1.21595)
+metadata/_edit_lock_ = true
 
-[node name="furniture2" parent="." groups=["furniture"] instance=ExtResource("2_8173x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.94515, 5.40376)
+[node name="trees" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 1.91622, -0.181422, -1.68833)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD2" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 1.42673, -0.181422, -0.876301)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD3" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 2.09023, -0.181422, -1.1549)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD4" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 2.32187, -0.181422, -2.1346)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD5" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 2.74114, -0.181422, -1.43212)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD6" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 2.36846, -0.181422, -0.779377)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD25" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 1.52396, -0.181422, -0.149997)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD26" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 1.03446, -0.181422, 0.662033)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD27" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 1.69796, -0.181422, 0.38343)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD28" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 1.92961, -0.181422, -0.59627)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD29" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 2.34888, -0.181422, 0.106218)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD30" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 1.97619, -0.181422, 0.758958)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD31" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.787871, -0.181422, 1.61397)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD32" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.298374, -0.181422, 2.426)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD33" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.961874, -0.181422, 2.1474)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD34" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 1.19352, -0.181422, 1.1677)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD35" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 1.61279, -0.181422, 1.87019)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD36" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 1.2401, -0.181422, 2.52293)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD37" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 2.78103, -0.181422, 0.826484)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD38" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 2.29153, -0.181422, 1.63851)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD39" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 2.95503, -0.181422, 1.35991)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD40" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 3.18668, -0.181422, 0.380211)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD41" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 3.60595, -0.181422, 1.0827)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD42" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 3.23326, -0.181422, 1.73544)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD43" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.86506, -0.181422, -5.07119)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD44" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.375564, -0.181422, -4.25916)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD45" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 1.03906, -0.181422, -4.53776)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD46" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 1.27071, -0.181422, -5.51746)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD47" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 1.68998, -0.181422, -4.81497)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD48" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 1.31729, -0.181422, -4.16223)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD7" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 1.54239, -0.181422, -3.43692)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD8" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 1.05289, -0.181422, -2.62488)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD9" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 1.71639, -0.181422, -2.90349)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD10" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 1.94803, -0.181422, -3.88319)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD11" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 2.36731, -0.181422, -3.1807)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD12" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 1.99462, -0.181422, -2.52796)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD13" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 3.66745, -0.181422, -1.05922)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD14" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 3.17796, -0.181422, -0.247193)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD15" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 3.84146, -0.181422, -0.525796)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD16" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 4.0731, -0.181422, -1.5055)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD17" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 4.49237, -0.181422, -0.803008)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD18" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 4.11969, -0.181422, -0.150268)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD19" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 3.29362, -0.181422, -2.80781)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD20" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 2.80412, -0.181422, -1.99578)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD21" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 3.46762, -0.181422, -2.27438)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD22" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 3.69926, -0.181422, -3.25408)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD23" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 4.11854, -0.181422, -2.55159)
+metadata/_edit_lock_ = true
+
+[node name="tree_pineTallD24" parent="trees" instance=ExtResource("8_ul7ch")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 3.74585, -0.181422, -1.89885)
+metadata/_edit_lock_ = true
+
+[node name="plants" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="plant_bushDetailed" parent="plants" instance=ExtResource("9_es512")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.2792, 0.15, -1.73312)
+metadata/_edit_lock_ = true
+
+[node name="plant_bushDetailed2" parent="plants" instance=ExtResource("9_es512")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.51155, 0.15, -2.2561)
+metadata/_edit_lock_ = true
+
+[node name="plant_bushDetailed3" parent="plants" instance=ExtResource("9_es512")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.63481, 0.15, -1.2132)
+metadata/_edit_lock_ = true
+
+[node name="plant_bushDetailed4" parent="plants" instance=ExtResource("9_es512")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.94221, 0.15, -1.91254)
+metadata/_edit_lock_ = true
+
+[node name="plant_bushDetailed5" parent="plants" instance=ExtResource("9_es512")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.0273, 0.15, -2.28591)
+metadata/_edit_lock_ = true
+
+[node name="plant_bushDetailed6" parent="plants" instance=ExtResource("9_es512")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.67865, 0.15, -0.495837)
+metadata/_edit_lock_ = true
+
+[node name="plant_bushDetailed7" parent="plants" instance=ExtResource("9_es512")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.91099, 0.15, -1.01881)
+metadata/_edit_lock_ = true
+
+[node name="plant_bushDetailed8" parent="plants" instance=ExtResource("9_es512")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.03425, 0.15, 0.0240802)
+metadata/_edit_lock_ = true
+
+[node name="plant_bushDetailed9" parent="plants" instance=ExtResource("9_es512")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.34165, 0.15, -0.675256)
+metadata/_edit_lock_ = true
+
+[node name="plant_bushDetailed10" parent="plants" instance=ExtResource("9_es512")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.42674, 0.15, -1.04862)
+metadata/_edit_lock_ = true
+
+[node name="plant_bushDetailed11" parent="plants" instance=ExtResource("9_es512")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.41199, 0.15, -1.78939)
+metadata/_edit_lock_ = true
+
+[node name="plant_bushDetailed12" parent="plants" instance=ExtResource("9_es512")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.64434, 0.15, -2.31237)
+metadata/_edit_lock_ = true
+
+[node name="plant_bushDetailed13" parent="plants" instance=ExtResource("9_es512")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.76759, 0.15, -1.26948)
+metadata/_edit_lock_ = true
+
+[node name="plant_bushDetailed14" parent="plants" instance=ExtResource("9_es512")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3.075, 0.15, -1.96881)
+metadata/_edit_lock_ = true
+
+[node name="plant_bushDetailed15" parent="plants" instance=ExtResource("9_es512")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.16009, 0.15, -2.34218)
+metadata/_edit_lock_ = true
+
+[node name="plant_bushDetailed16" parent="plants" instance=ExtResource("9_es512")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.04894, 0.15, 0.529771)
+metadata/_edit_lock_ = true
+
+[node name="plant_bushDetailed17" parent="plants" instance=ExtResource("9_es512")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.28129, 0.15, 0.00679421)
+metadata/_edit_lock_ = true
+
+[node name="plant_bushDetailed18" parent="plants" instance=ExtResource("9_es512")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.40454, 0.15, 1.04969)
+metadata/_edit_lock_ = true
+
+[node name="plant_bushDetailed19" parent="plants" instance=ExtResource("9_es512")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.71195, 0.15, 0.350352)
+metadata/_edit_lock_ = true
+
+[node name="plant_bushDetailed20" parent="plants" instance=ExtResource("9_es512")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.797039, 0.15, -0.0230145)
+metadata/_edit_lock_ = true
 
 [connection signal="debug" from="." to="player" method="_on_debug"]
 [connection signal="missed_mosquito" from="." to="player" method="update_missed_mosquitos"]
