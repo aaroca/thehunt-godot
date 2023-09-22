@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqquwpjs64thk"]
+
+[ext_resource type="PackedScene" uid="uid://c6u8b4aft433k" path="res://prefabs/furniture/furniture.tscn" id="1_rihkx"]
+[ext_resource type="ArrayMesh" uid="uid://0mj1qxe41j7w" path="res://assets/3d/plantSmall1_Mesh plantSmall1.res" id="2_wkc1b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_80on2"]
+size = Vector3(0.200078, 0.282614, 0.192139)
+
+[node name="plant" instance=ExtResource("1_rihkx")]
+
+[node name="mesh-Planta" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("2_wkc1b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.069691, 0)
+shape = SubResource("BoxShape3D_80on2")

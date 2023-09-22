@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bfklxn17yt48j"]
+[gd_scene load_steps=39 format=3 uid="uid://bfklxn17yt48j"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_kd17e"]
 [ext_resource type="Texture2D" uid="uid://u1j824icueku" path="res://assets/2d/Canopus_and_Sirius.jpeg" id="2_ufwkr"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://ye1lqwn31kn" path="res://assets/3d/rugRectangle.glb" id="15_qx4io"]
 [ext_resource type="PackedScene" uid="uid://dqdmnyo3le3yk" path="res://assets/3d/bookcaseClosedWide.glb" id="16_y1q0x"]
 [ext_resource type="PackedScene" uid="uid://dq5fumx3vaqj2" path="res://assets/3d/bookcaseClosedDoors.glb" id="17_87146"]
+[ext_resource type="PackedScene" uid="uid://baefr55gij1f6" path="res://prefabs/furniture/speaker.tscn" id="20_dh47i"]
 [ext_resource type="PackedScene" uid="uid://d3ms3liapj7r" path="res://prefabs/furniture/television.tscn" id="20_pgqlt"]
 [ext_resource type="PackedScene" uid="uid://bamudldp6iygg" path="res://prefabs/furniture/lamp.tscn" id="21_grjiv"]
 [ext_resource type="PackedScene" uid="uid://b11wti856txse" path="res://prefabs/furniture/trashcan.tscn" id="22_gl0q8"]
@@ -29,6 +30,8 @@
 [ext_resource type="PackedScene" uid="uid://cv0wu24pknokl" path="res://prefabs/furniture/computer_screen.tscn" id="27_1vjh3"]
 [ext_resource type="PackedScene" uid="uid://bu6hk812mbgi6" path="res://prefabs/furniture/computer_mouse.tscn" id="28_xr7t4"]
 [ext_resource type="PackedScene" uid="uid://bqyars5yacmjn" path="res://prefabs/furniture/computer_keyboard.tscn" id="29_gecxd"]
+[ext_resource type="PackedScene" uid="uid://cqquwpjs64thk" path="res://prefabs/furniture/plant.tscn" id="30_vx7hu"]
+[ext_resource type="PackedScene" uid="uid://1rybgofb3tb7" path="res://prefabs/furniture/radio.tscn" id="31_518g0"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_cr6w8"]
 panorama = ExtResource("2_ufwkr")
@@ -533,6 +536,22 @@ metadata/_edit_lock_ = true
 
 [node name="computer_keyboard" parent="furniture" groups=["furniture"] instance=ExtResource("29_gecxd")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.09828, 0.486129, -0.648529)
+metadata/_edit_lock_ = true
+
+[node name="plant" parent="furniture" groups=["furniture"] instance=ExtResource("30_vx7hu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22366, 0.186458, -2.93992)
+metadata/_edit_lock_ = true
+
+[node name="radio" parent="furniture" groups=["furniture"] instance=ExtResource("31_518g0")]
+transform = Transform3D(0.953154, 0, 0.302486, 0, 1, 0, -0.302486, 0, 0.953154, -1.71323, 0.433102, -2.8329)
+metadata/_edit_lock_ = true
+
+[node name="speaker" parent="furniture" groups=["furniture"] instance=ExtResource("20_dh47i")]
+transform = Transform3D(0.296191, 0, -0.955129, 0, 1, 0, 0.955129, 0, 0.296191, 0.203686, 0.101326, -2.96352)
+metadata/_edit_lock_ = true
+
+[node name="speaker2" parent="furniture" groups=["furniture"] instance=ExtResource("20_dh47i")]
+transform = Transform3D(-0.221549, 0, -0.975149, 0, 1, 0, 0.975149, 0, -0.221549, 0.239389, 0.101326, -1.92209)
 metadata/_edit_lock_ = true
 
 [connection signal="debug" from="." to="player" method="_on_debug"]
