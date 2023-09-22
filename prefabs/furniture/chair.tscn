@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://cilmhwuwj8cro"]
+
+[ext_resource type="PackedScene" uid="uid://c6u8b4aft433k" path="res://prefabs/furniture/furniture.tscn" id="1_dwvrb"]
+[ext_resource type="ArrayMesh" uid="uid://b1sqxykthxsa6" path="res://assets/3d/chairDesk_Mesh chair.res" id="2_xqr7j"]
+[ext_resource type="ArrayMesh" uid="uid://cdoydq3o8na8v" path="res://assets/3d/chairDesk_Mesh chairDesk.res" id="3_ji0bu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cpgv7"]
+size = Vector3(0.347053, 0.60042, 0.325708)
+
+[node name="chair" instance=ExtResource("1_dwvrb")]
+
+[node name="mesh-Silla" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16038, 0.188963, -0.157205)
+mesh = ExtResource("2_xqr7j")
+
+[node name="pie" type="MeshInstance3D" parent="." index="2"]
+mesh = ExtResource("3_ji0bu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16038, 0.300118, -0.157205)
+shape = SubResource("BoxShape3D_cpgv7")

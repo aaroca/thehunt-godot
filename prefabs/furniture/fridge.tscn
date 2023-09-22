@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dk57dm16naj25"]
+
+[ext_resource type="PackedScene" uid="uid://c6u8b4aft433k" path="res://prefabs/furniture/furniture.tscn" id="1_84l2r"]
+[ext_resource type="ArrayMesh" uid="uid://lvk38qt4v07h" path="res://assets/3d/kitchenFridgeSmall_Mesh kitchenFridgeSmall.res" id="2_p0qst"]
+[ext_resource type="ArrayMesh" uid="uid://f0yy44fg0syo" path="res://assets/3d/kitchenFridgeSmall_Mesh doorFridge.res" id="3_jjfkt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r8i8k"]
+size = Vector3(0.217323, 0.301803, 0.153791)
+
+[node name="fridge" instance=ExtResource("1_84l2r")]
+
+[node name="mesh-Frigorífico" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("2_p0qst")
+
+[node name="puerta" type="MeshInstance3D" parent="." index="2"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.0151678, 0.042865, -0.00362443)
+mesh = ExtResource("3_jjfkt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.107132, 0.149911, -0.0642713)
+shape = SubResource("BoxShape3D_r8i8k")
