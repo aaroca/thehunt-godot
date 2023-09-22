@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://8rs6qe15sk5r"]
+
+[ext_resource type="PackedScene" uid="uid://c6u8b4aft433k" path="res://prefabs/furniture/furniture.tscn" id="1_b0oel"]
+[ext_resource type="ArrayMesh" uid="uid://bwn2symueru3t" path="res://assets/3d/books_Mesh books.res" id="2_dpk4b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eil6f"]
+size = Vector3(0.153594, 0.108533, 0.0942308)
+
+[node name="books" instance=ExtResource("1_b0oel")]
+
+[node name="mesh-Libros" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0732171, 0, 0.0428978)
+mesh = ExtResource("2_dpk4b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000314236, 0.0550302, -0.00495598)
+shape = SubResource("BoxShape3D_eil6f")
