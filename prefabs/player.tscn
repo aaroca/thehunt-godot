@@ -113,6 +113,7 @@ texture = ExtResource("4_6404x")
 expand_mode = 1
 
 [node name="controllers" type="Label" parent="playerCollision/playerShape/mainCamera/mouse"]
+layout_mode = 0
 offset_left = 24.0
 offset_right = 203.0
 offset_bottom = 26.0
@@ -252,8 +253,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="titleScreen" type="ColorRect" parent="playerCollision/playerShape/mainCamera"]
-process_mode = 4
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -262,7 +261,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("8_5ylce")
 
-[node name="mainTheme" type="Label" parent="playerCollision/playerShape/mainCamera/titleScreen"]
+[node name="info" type="Label" parent="playerCollision/playerShape/mainCamera/titleScreen"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -272,7 +271,8 @@ offset_top = -28.0
 offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Otra más noche que esos malditos mosquitos no te dejan dormir. Acaba con ellos."
+text = "Otra noche más que esos malditos mosquitos no te dejan dormir. 
+Seguro se esconden entre los objetos de la habitación. Búscalos y acaba con ellos."
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -316,7 +316,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="titleTimer" type="Timer" parent="playerCollision/playerShape/mainCamera/titleScreen"]
-wait_time = 3.0
+wait_time = 5.0
 
 [node name="debugTimeout" type="Timer" parent="."]
 wait_time = 2.0
