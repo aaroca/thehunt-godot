@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqyars5yacmjn"]
+
+[ext_resource type="PackedScene" uid="uid://c6u8b4aft433k" path="res://prefabs/furniture/furniture.tscn" id="1_yvxgb"]
+[ext_resource type="ArrayMesh" uid="uid://cot5nru1fqkgd" path="res://assets/3d/computerKeyboard_Mesh computerKeyboard.res" id="2_rcph8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_byrha"]
+size = Vector3(0.286744, 0.0291203, 0.119643)
+
+[node name="computer_keyboard" instance=ExtResource("1_yvxgb")]
+
+[node name="mesh-Teclado" type="MeshInstance3D" parent="." index="1"]
+mesh = ExtResource("2_rcph8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.141453, 0.0128389, -0.0585348)
+shape = SubResource("BoxShape3D_byrha")

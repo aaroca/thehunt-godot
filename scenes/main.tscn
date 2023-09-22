@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bfklxn17yt48j"]
+[gd_scene load_steps=36 format=3 uid="uid://bfklxn17yt48j"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_kd17e"]
 [ext_resource type="Texture2D" uid="uid://u1j824icueku" path="res://assets/2d/Canopus_and_Sirius.jpeg" id="2_ufwkr"]
@@ -24,6 +24,11 @@
 [ext_resource type="PackedScene" uid="uid://b11wti856txse" path="res://prefabs/furniture/trashcan.tscn" id="22_gl0q8"]
 [ext_resource type="PackedScene" uid="uid://8rs6qe15sk5r" path="res://prefabs/furniture/books.tscn" id="23_oj6hm"]
 [ext_resource type="PackedScene" uid="uid://bk25riaiu5gpj" path="res://prefabs/furniture/box_closed.tscn" id="24_wgmxg"]
+[ext_resource type="PackedScene" uid="uid://b8aj6wa4g5jea" path="res://prefabs/furniture/box_open.tscn" id="25_vjk21"]
+[ext_resource type="PackedScene" uid="uid://sddtumo8n3pn" path="res://prefabs/furniture/coat_rack.tscn" id="26_d5cc3"]
+[ext_resource type="PackedScene" uid="uid://cv0wu24pknokl" path="res://prefabs/furniture/computer_screen.tscn" id="27_1vjh3"]
+[ext_resource type="PackedScene" uid="uid://bu6hk812mbgi6" path="res://prefabs/furniture/computer_mouse.tscn" id="28_xr7t4"]
+[ext_resource type="PackedScene" uid="uid://bqyars5yacmjn" path="res://prefabs/furniture/computer_keyboard.tscn" id="29_gecxd"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_cr6w8"]
 panorama = ExtResource("2_ufwkr")
@@ -487,7 +492,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.2812
 metadata/_edit_lock_ = true
 
 [node name="lamp" parent="furniture" groups=["furniture"] instance=ExtResource("21_grjiv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.119858, 0.342151, -0.202948)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.119858, 0.332711, -0.202948)
 metadata/_edit_lock_ = true
 
 [node name="trashcan" parent="furniture" groups=["furniture"] instance=ExtResource("22_gl0q8")]
@@ -495,11 +500,40 @@ transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -2.297
 metadata/_edit_lock_ = true
 
 [node name="books" parent="furniture" groups=["furniture"] instance=ExtResource("23_oj6hm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.30215, 0.699135, -2.85063)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.30215, 0.699135, -2.89661)
+metadata/_edit_lock_ = true
+
+[node name="books2" parent="furniture" groups=["furniture"] instance=ExtResource("23_oj6hm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65961, 0.699135, -2.89661)
+metadata/_edit_lock_ = true
+
+[node name="books3" parent="furniture" groups=["furniture"] instance=ExtResource("23_oj6hm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.47445, 0.235785, -2.89661)
 metadata/_edit_lock_ = true
 
 [node name="box_closed" parent="furniture" groups=["furniture"] instance=ExtResource("24_wgmxg")]
-transform = Transform3D(0.72322, 0, 0.690617, 0, 1, 0, -0.690617, 0, 0.72322, -1.23775, 0.1, -0.169594)
+transform = Transform3D(0.72322, 0, 0.690617, 0, 1, 0, -0.690617, 0, 0.72322, -0.951087, 0.1, -0.169594)
+metadata/_edit_lock_ = true
+
+[node name="box_open" parent="furniture" groups=["furniture"] instance=ExtResource("25_vjk21")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.15886, 0.0990428, -0.224181)
+metadata/_edit_lock_ = true
+
+[node name="coat_rack" parent="furniture" groups=["furniture"] instance=ExtResource("26_d5cc3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.29781, 0.106111, -1.61607)
+metadata/_edit_lock_ = true
+
+[node name="computer_screen" parent="furniture" groups=["furniture"] instance=ExtResource("27_1vjh3")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.3672, 0.486536, -0.795116)
+metadata/_edit_lock_ = true
+
+[node name="computer_mouse" parent="furniture" groups=["furniture"] instance=ExtResource("28_xr7t4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.20966, 0.484306, -1.00126)
+metadata/_edit_lock_ = true
+
+[node name="computer_keyboard" parent="furniture" groups=["furniture"] instance=ExtResource("29_gecxd")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.09828, 0.486129, -0.648529)
+metadata/_edit_lock_ = true
 
 [connection signal="debug" from="." to="player" method="_on_debug"]
 [connection signal="missed_mosquito" from="." to="player" method="update_missed_mosquitos"]

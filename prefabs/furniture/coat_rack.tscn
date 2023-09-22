@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://sddtumo8n3pn"]
+
+[ext_resource type="PackedScene" uid="uid://c6u8b4aft433k" path="res://prefabs/furniture/furniture.tscn" id="1_1kqo4"]
+[ext_resource type="ArrayMesh" uid="uid://cu2gh774sx0rw" path="res://assets/3d/coatRackStanding_Mesh coatRackStanding.res" id="2_tgpfp"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mu0md"]
+points = PackedVector3Array(0.10192, 0.776111, 0.0163706, -0.142511, -0.00611109, -0.0324716, -0.142511, -0.00611109, 0.028588, 0.1386, -0.00611109, -0.0324716, -0.0202542, 0.763784, -0.118021, -0.0202542, 0.62933, 0.126355, 0.028588, -0.00611109, 0.1386, -0.118021, 0.763784, 0.0163706, 0.028588, -0.00611109, -0.142511, 0.114138, 0.763784, -0.0202542, 0.1386, 0.0184674, 0.028588, 0.0163706, 0.763784, 0.114138, -0.0324716, -0.00611109, -0.142511, -0.0324716, -0.00611109, 0.1386, -0.130239, 0.62933, -0.0202542, 0.0163706, 0.62933, -0.130239, 0.126355, 0.62933, 0.0163706, -0.105804, 0.776111, -0.0202542, 0.0163706, 0.62933, 0.126355, 0.126355, 0.62933, -0.0202542, -0.130239, 0.62933, 0.0163706, -0.0202542, 0.62933, -0.130239, 0.0163706, 0.776111, -0.105804, -0.0202542, 0.776111, 0.10192, 0.0163706, 0.763784, -0.118021, -0.118021, 0.763784, -0.0202542, -0.0202542, 0.763784, 0.114138, 0.114138, 0.763784, 0.0163706, 0.1386, -0.00611109, 0.028588, -0.0324716, 0.0184674, 0.1386, 0.1386, 0.0184674, -0.0324716, 0.028588, 0.0184674, 0.1386)
+
+[node name="coat_rack" instance=ExtResource("1_1kqo4")]
+
+[node name="mesh-Perchero" type="MeshInstance3D" parent="." index="1"]
+mesh = ExtResource("2_tgpfp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+shape = SubResource("ConvexPolygonShape3D_mu0md")

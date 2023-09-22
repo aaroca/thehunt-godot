@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cv0wu24pknokl"]
+
+[ext_resource type="PackedScene" uid="uid://c6u8b4aft433k" path="res://prefabs/furniture/furniture.tscn" id="1_5sfjs"]
+[ext_resource type="ArrayMesh" uid="uid://oew7psshfate" path="res://assets/3d/computerScreen_Mesh computerScreen.res" id="2_v813h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5omvg"]
+size = Vector3(0.399515, 0.301316, 0.104139)
+
+[node name="computer_screen" instance=ExtResource("1_5sfjs")]
+
+[node name="mesh-Pantalla" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.177459, 0, 0.0527084)
+mesh = ExtResource("2_v813h")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01694, 0.14853, 0.000286162)
+shape = SubResource("BoxShape3D_5omvg")

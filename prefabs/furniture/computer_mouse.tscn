@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bu6hk812mbgi6"]
+
+[ext_resource type="PackedScene" uid="uid://c6u8b4aft433k" path="res://prefabs/furniture/furniture.tscn" id="1_6xwp0"]
+[ext_resource type="ArrayMesh" uid="uid://c2f3ttdtnj30b" path="res://assets/3d/computerMouse_Mesh computerMouse.res" id="2_ryht2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lwxyw"]
+size = Vector3(0.0493171, 0.0239697, 0.08562)
+
+[node name="computer_mouse" instance=ExtResource("1_6xwp0")]
+
+[node name="mesh-Ratón" type="MeshInstance3D" parent="." index="1"]
+mesh = ExtResource("2_ryht2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.012086, -0.0417825)
+shape = SubResource("BoxShape3D_lwxyw")

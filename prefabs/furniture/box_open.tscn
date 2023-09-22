@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8aj6wa4g5jea"]
+
+[ext_resource type="PackedScene" uid="uid://c6u8b4aft433k" path="res://prefabs/furniture/furniture.tscn" id="1_ir72v"]
+[ext_resource type="ArrayMesh" uid="uid://chqy5pfw4e8fc" path="res://assets/3d/cardboardBoxOpen_Mesh cardboardBoxOpen.res" id="2_nf408"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tdytm"]
+size = Vector3(0.216706, 0.229305, 0.224265)
+
+[node name="box_open" instance=ExtResource("1_ir72v")]
+
+[node name="mesh-Caja abierta" type="MeshInstance3D" parent="." index="1"]
+mesh = ExtResource("2_nf408")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.105833, 0.108353, -0.103313)
+shape = SubResource("BoxShape3D_tdytm")
