@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://b3tssx6p867o0" path="res://assets/3d/deskCorner.glb" id="10_m6q7l"]
 [ext_resource type="PackedScene" uid="uid://bydcbdwnnl35j" path="res://assets/3d/cabinetTelevision.glb" id="13_kdki4"]
 [ext_resource type="PackedScene" uid="uid://b8r73le8i36ql" path="res://assets/3d/loungeSofa.glb" id="14_hahwo"]
-[ext_resource type="PackedScene" uid="uid://cekw088omk4av" path="res://assets/3d/rugRectangle.glb" id="15_qx4io"]
+[ext_resource type="PackedScene" uid="uid://ye1lqwn31kn" path="res://assets/3d/rugRectangle.glb" id="15_qx4io"]
 [ext_resource type="PackedScene" uid="uid://dqdmnyo3le3yk" path="res://assets/3d/bookcaseClosedWide.glb" id="16_y1q0x"]
 [ext_resource type="PackedScene" uid="uid://dq5fumx3vaqj2" path="res://assets/3d/bookcaseClosedDoors.glb" id="17_87146"]
 [ext_resource type="PackedScene" uid="uid://baefr55gij1f6" path="res://prefabs/furniture/speaker.tscn" id="20_dh47i"]
@@ -104,11 +104,11 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5499
 metadata/_edit_lock_ = true
 
 [node name="wallHalf7" parent="bedroom" instance=ExtResource("4_0rp8b")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.49872, 0.0999392, -1.04714)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.54923, 0.0999392, -1.54854)
 metadata/_edit_lock_ = true
 
 [node name="wallHalf12" parent="bedroom" instance=ExtResource("4_0rp8b")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.49855, 0.0999392, -0.550212)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.54926, 0.0999392, -1.0518)
 metadata/_edit_lock_ = true
 
 [node name="wallHalf2" parent="bedroom" instance=ExtResource("4_0rp8b")]
@@ -116,19 +116,19 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5499
 metadata/_edit_lock_ = true
 
 [node name="wallHalf3" parent="bedroom" instance=ExtResource("4_0rp8b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00015, 0.0999392, -3.04735)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.499011, 0.0999392, -3.09689)
 metadata/_edit_lock_ = true
 
 [node name="wallHalf4" parent="bedroom" instance=ExtResource("4_0rp8b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.500408, 0.0999392, -3.04696)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.000655115, 0.0999392, -3.09652)
 metadata/_edit_lock_ = true
 
 [node name="wallHalf5" parent="bedroom" instance=ExtResource("4_0rp8b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.00024, 0.0999392, -3.04735)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.4987, 0.0999392, -3.09724)
 metadata/_edit_lock_ = true
 
 [node name="wallHalf6" parent="bedroom" instance=ExtResource("4_0rp8b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5005, 0.0999392, -3.04696)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.998609, 0.0999392, -3.09715)
 metadata/_edit_lock_ = true
 
 [node name="wallHalf8" parent="bedroom" instance=ExtResource("4_0rp8b")]
@@ -152,7 +152,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5500
 metadata/_edit_lock_ = true
 
 [node name="wallDoorway" parent="bedroom" instance=ExtResource("6_ggtca")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.49874, 0.1, -1.54695)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.54913, 0.1, -2.54818)
 metadata/_edit_lock_ = true
 
 [node name="doorway" parent="bedroom" instance=ExtResource("7_eo406")]
